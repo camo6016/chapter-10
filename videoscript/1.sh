@@ -12,6 +12,11 @@ kcuc default
 kubectl create namespace eightthreedistinction --dry-run=client -o yaml | kubectl apply -f -
 kcn eightthreedistinction
 
+cd ../scripts/local-kub
+./delete.sh
+
+az login
+
 clear
 
 neofetch --ascii_distro openSUSE
