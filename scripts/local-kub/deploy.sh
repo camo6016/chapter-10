@@ -17,6 +17,17 @@ docker build -t video-streaming:1 --file ../../video-streaming/Dockerfile-prod .
 docker build -t video-upload:1 --file ../../video-upload/Dockerfile-prod ../../video-upload
 docker build -t gateway:1 --file ../../gateway/Dockerfile-prod ../../gateway
 
+##
+## Add Steps To Push Images Into K3s
+##
+docker save metadata:1 | sudo /usr/local/bin/k3s ctr images import -
+docker save history:1 | sudo /usr/local/bin/k3s ctr images import -
+docker save mock-storage:1 | sudo /usr/local/bin/k3s ctr images import -
+docker save history:1 | sudo /usr/local/bin/k3s ctr images import -
+docker save video-streaming:1 | sudo /usr/local/bin/k3s ctr images import -
+docker save video-upload:1 | sudo /usr/local/bin/k3s ctr images import -
+docker save gateway:1 | sudo /usr/local/bin/k3s ctr images import -
+
 # 
 # Deploy containers to Kubernetes.
 #
