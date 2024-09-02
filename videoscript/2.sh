@@ -7,7 +7,7 @@ echo " "
 echo " "
 echo " "
 
-echo "Command: cd metadata"
+echo "Command: cd ../metadata"
 cd ../metadata
 
 echo " "
@@ -30,6 +30,7 @@ echo " "
 echo "Command: npm test"
 npm test
 
+echo " "
 echo "- npm install downloads all the required node.js librarys"
 echo "- we set PORT to 3000 which is what the web server will listen on"
 echo "- this app has depdencys on a database and rabbitMQ so we cant run it in isolation"
