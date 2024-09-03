@@ -11,13 +11,16 @@ echo " "
 echo "Command: kubectl get all"
 kubectl get all
 
+echo "Command: cd ../scripts/cd"
+cd ../scripts/cd
+
 echo " "
-echo "Command: cat ../scripts/cd/infrastructure.sh"
-cat ../scripts/cd/infrastructure.sh
+echo "Command: cat infrastructure.sh"
+cat infrastructure.sh
 
 echo " "
 echo "Command: ../scripts/cd/infrastructure.sh"
-cat ../scripts/cd/infrastructure.sh
+./infrastructure.sh
 
 echo " "
 echo "Command: sleep 5"

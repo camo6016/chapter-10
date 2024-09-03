@@ -1,3 +1,5 @@
+
+docker kill $(docker ps -q)
 docker system prune -a --volumes
 
 echo " "
@@ -5,12 +7,12 @@ echo " "
 echo " "
 
 cd ../create_k8s
+terraform state rm azurerm_role_assignment.role_assignment
 terraform destroy -auto-approve
 
-kcgc
-kcuc default
+kubectl config use-context default
 kubectl create namespace eightthreedistinction --dry-run=client -o yaml | kubectl apply -f -
-kcn eightthreedistinction
+kubectl config set-context eightthreedistinction
 
 cd ../scripts/local-kub
 ./delete.sh
@@ -45,12 +47,6 @@ echo " "
 echo "Command: git remote -v"
 
 git remote -v
-
-echo " "
-echo "Command: pwd"
-
-cd ../videoscripts
-pwd
 
 echo " "
 echo "- Unable to install provided software due to using linux"
